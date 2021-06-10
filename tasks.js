@@ -98,3 +98,5 @@ function quit(){
 
 // The following line starts the application
 startApp("Hassan Alsabeh")
+var myData = ['batata','blah','tabouleh']; 
+console.log(myData);
