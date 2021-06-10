@@ -42,10 +42,9 @@ function onDataReceived(text) {
   else if(text.slice(0,5) === 'hello' ){
     hello(text);
   }  
-  else if(text === 'help\n'){
-    help();
-  }
-  
+  else if(text.slice(0,4) === 'help' ){
+    help(text);
+  }  
   else{
     unknownCommand(text);
   }
@@ -69,9 +68,7 @@ function unknownCommand(c){
  *
  * @returns {void}
  */
-function hello(){
-  console.log('hello!')
-}
+
 function hello(text){
   const text1 = text.replace(/ +/g, " ");
   const text2 =text1.trim()+"!";
@@ -81,10 +78,13 @@ function hello(text){
 /**
  * Lists all the possible commands
  */
-function help(){
-  console.log('exit \n hello \n help!')
-}
 
+function help(text){
+  const text1 = text.replace(/ +/g, " ");
+  const text2 =text1.trim()+"!";
+  console.log(text2);
+
+}
 
 /**
  * Exits the application
