@@ -69,8 +69,10 @@ function unknownCommand(c){
 function hello(){
   console.log('hello!')
 }
+
+
 function help(){
-  console.log('help!')
+  console.log('exit \n hello \n help!')
 }
 
 
