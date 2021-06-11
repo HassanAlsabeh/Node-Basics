@@ -52,7 +52,15 @@ function onDataReceived(text) {
   else if (text.slice(0,3) === 'add'){
     add(text.substring(3).trim());
 }
-
+else if (text === 'remove\n'){
+  remove();
+}
+else if (text === 'remove 1\n'){
+  remove1();
+}
+else if (text === 'remove 2\n'){
+  remove2();
+}
   else{
     unknownCommand(text);
   }
@@ -118,3 +126,13 @@ function add(text){
   else{
 fruits.push(text)
 }}
+
+function remove(text){
+fruits.pop(text)
+}
+function remove1(text){
+  fruits.shift(text)
+  }
+  function remove2(text){
+    fruits.splice(1,1)
+    }
