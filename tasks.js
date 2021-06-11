@@ -9,7 +9,17 @@
  * @param  {string} name the name of the app
  * @returns {void}
  */
- const array = ['Apple', 'Banana']
+ 
+ const array=[{
+  namet:"Apple",
+  statust:true,
+},
+{
+  namet:"Banana",
+  statust:false,
+},
+
+];
 function startApp(name){
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
@@ -113,7 +123,12 @@ function quit(){
 startApp("Hassan Alsabeh")
 function list(){
 for (let i=0;i<array.length;i++)
-console.log(i+1+" - [ ] "+array[i])
+if(array[i].statust==true){
+  console.log(i+1+" - [✓] "+array[i].namet);
+}
+else{
+  console.log(i+1+" - [ ] "+array[i].namet);
+}
 }
 
 function add(text){
@@ -121,9 +136,13 @@ function add(text){
     console.log("error")
   }
   else{
-array.push(text)
-}}
 
+array.push({
+  namet:text,
+  statust:false});
+}
+
+}
 function remove(text){
   if (array.length<=text){
     console.log("you enter a number greater than length of the list");
