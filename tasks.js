@@ -9,6 +9,7 @@
  * @param  {string} name the name of the app
  * @returns {void}
  */
+ const fruits = ['Apple', 'Banana']
 function startApp(name){
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
@@ -45,6 +46,9 @@ function onDataReceived(text) {
   else if(text.slice(0,4) === 'help' ){
     help(text);
   }  
+  else if (text === 'list\n'){
+      list();
+  }
   else{
     unknownCommand(text);
   }
@@ -70,7 +74,7 @@ function unknownCommand(c){
  */
 
 function hello(text){
-  const text1 = text.replace(/ +/g, " ");
+  const text1 = text.replace(/ +/, " ");
   const text2 =text1.trim()+"!";
   console.log(text2);
 
@@ -98,5 +102,7 @@ function quit(){
 
 // The following line starts the application
 startApp("Hassan Alsabeh")
-var myData = ['batata','blah','tabouleh']; 
-console.log(myData);
+function list(){
+for (let i=0;i<fruits.length;i++)
+console.log(i+1+" - [ ] "+fruits[i])
+}
