@@ -9,7 +9,7 @@
  * @param  {string} name the name of the app
  * @returns {void}
  */
- const fruits = ['Apple', 'Banana']
+ const array = ['Apple', 'Banana']
 function startApp(name){
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
@@ -52,16 +52,10 @@ function onDataReceived(text) {
   else if (text.slice(0,3) === 'add'){
     add(text.substring(3).trim());
 }
-else if (text === 'remove\n'){
-  remove();
+else if (text.slice(0,6)==='remove'){
+  remove(text.slice(6));
 }
-else if (text === 'remove 1\n'){
-  remove1();
-}
-else if (text === 'remove 2\n'){
-  remove2();
-}
-  else{
+else{
     unknownCommand(text);
   }
 }
@@ -115,8 +109,8 @@ function quit(){
 // The following line starts the application
 startApp("Hassan Alsabeh")
 function list(){
-for (let i=0;i<fruits.length;i++)
-console.log(i+1+" - [ ] "+fruits[i])
+for (let i=0;i<array.length;i++)
+console.log(i+1+" - [ ] "+array[i])
 }
 
 function add(text){
@@ -124,15 +118,19 @@ function add(text){
     console.log("error")
   }
   else{
-fruits.push(text)
+array.push(text)
 }}
 
 function remove(text){
-fruits.pop(text)
+text=text.trim();
+if(text<=array.length){
+  if(text == ""){
+    array.pop();
+  }else if(text == "1"){
+    array.shift();
+  }else if(text == "2"){
+    array.splice(1,1);
+  }}
+  else{
+    console.log("you enter a number greater than length of the list");}
 }
-function remove1(text){
-  fruits.shift(text)
-  }
-  function remove2(text){
-    fruits.splice(1,1)
-    }
