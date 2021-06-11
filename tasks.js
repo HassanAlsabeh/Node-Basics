@@ -124,10 +124,10 @@ startApp("Hassan Alsabeh")
 function list(){
 for (let i=0;i<array.length;i++)
 if(array[i].statust==true){
-  console.log(i+1+" - [✓] "+array[i].namet);
+  console.log(i+1+" - [✓] " + array[i].namet);
 }
 else{
-  console.log(i+1+" - [ ] "+array[i].namet);
+  console.log(i+1+" - [ ] " + array[i].namet);
 }
 }
 
