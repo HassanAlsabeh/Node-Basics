@@ -49,6 +49,10 @@ function onDataReceived(text) {
   else if (text === 'list\n'){
       list();
   }
+  else if (text.slice(0,3) === 'add'){
+    add(text.substring(3).trim());
+}
+
   else{
     unknownCommand(text);
   }
@@ -106,3 +110,11 @@ function list(){
 for (let i=0;i<fruits.length;i++)
 console.log(i+1+" - [ ] "+fruits[i])
 }
+
+function add(text){
+  if(text.slice(0,3)==""){
+    console.log("error")
+  }
+  else{
+fruits.push(text)
+}}
